@@ -1,0 +1,66 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             asm_functions, CODE, READONLY
+    3 00000000                 EXPORT           save_move
+    4 00000000         save_move
+    5 00000000         ; save current SP for a faster access 
+    6 00000000         ; to parameters in the stack
+    7 00000000 46EC            MOV              r12, sp
+    8 00000002         ; save volatile registers
+    9 00000002 E92D 4DFC       STMFD            sp!,{r2-r8,r10-r11,lr}
+   10 00000006         ; extract argument 4 and 5 into R4 and R5
+   11 00000006         
+   12 00000006         ; arguments 
+   13 00000006         ; R0 - Vett_in[]
+   14 00000006         ; R1 - Vett_out[]
+   15 00000006         ; R2 - valore in costruzione
+   16 00000006         ; R3 - cnt elementi nel valore attuale
+   17 00000006         ; R4 - valore letto
+   18 00000006         ; R5 - conta simboli
+   19 00000006         ; R6 - valori in tabella
+   20 00000006         ; R7 - pointer a tabella
+   21 00000006         ; R8 - dato_tabella
+   22 00000006         
+   23 00000006         
+   24 00000006         
+   25 00000006         
+   26 00000006         
+   27 00000006         
+   28 00000006         
+   29 00000006         
+   30 00000006                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\asm_functs.d -o.\asm_functs.o -I.\RTE\_Target_1 -IC:\Users\alice
+\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\alice\Ap
+pData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include --predefine="__UVIS
+ION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1
+" --predefine="_RTE_ SETA 1" --list=.\asm_functs.lst ASM_functs.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+asm_functions 00000000
+
+Symbol: asm_functions
+   Definitions
+      At line 2 in file ASM_functs.s
+   Uses
+      None
+Comment: asm_functions unused
+save_move 00000000
+
+Symbol: save_move
+   Definitions
+      At line 4 in file ASM_functs.s
+   Uses
+      At line 3 in file ASM_functs.s
+Comment: save_move used once
+2 symbols
+335 symbols in table
